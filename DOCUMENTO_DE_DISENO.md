@@ -16,9 +16,11 @@ La falta de adherencia a los tratamientos médicos es un problema grave, especia
 * **Limitaciones:** El sistema no sustituye el juicio médico ni la gestión presencial en casos de emergencia crítica. No resolverá fallos mecánicos derivados de condiciones externas extremas (ej. inmersión total en agua o daños físicos por impacto) que excedan la protección IP54 proyectada.
 
 ---
-## 3 El diagrama de contexto define los límites del sistema **MediGo** y sus interacciones con los actores y sistemas externos.
+## Diagrama de Contexto
 
-![Diagrama de Contexto](images/diagrama_contexto.png)
+El diagrama de contexto define los límites del sistema **MediGo** y sus interacciones con los actores y sistemas externos.
+
+![Diagrama de Contexto](Diagrama_de_contexto.png)
 
 ## 4. Diagrama de Bloques del Diseño
 
