@@ -19,7 +19,7 @@ La falta de adherencia a los tratamientos médicos es un problema grave, especia
 
 ## 3. Diagrama de Bloques del Diseño
 
-![Diagrama de Bloques](images/diagrama_bloques.png)
+![Diagrama de Bloques](Diagrama_Bloques.png)
 
 ### Descripción de Bloques
 * **Bloque de Control:** ESP32 ejecutando FreeRTOS en C Nativo (ESP-IDF) para la gestión asíncrona de tareas (sensores, pantalla, conexión a nube y temporización).
@@ -32,7 +32,7 @@ La falta de adherencia a los tratamientos médicos es un problema grave, especia
 
 ## 4. Lógica de Estados del Software
 
-![Diagrama de Estados](images/diagrama_estados.png)
+![Diagrama de Estados](Diagrama_de_Estados.png)
 
 1. **Inicialización:** Carga de parámetros desde la memoria NVS y verificación de conexión Wi-Fi (si falla, pasa a *Modo Portal Cautivo*).
 2. **Modo Espera:** Monitoreo continuo de temperatura/humedad ambiental, actualización de reloj e inspección de alarmas programadas.
