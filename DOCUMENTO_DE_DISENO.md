@@ -16,8 +16,11 @@ La falta de adherencia a los tratamientos médicos es un problema grave, especia
 * **Limitaciones:** El sistema no sustituye el juicio médico ni la gestión presencial en casos de emergencia crítica. No resolverá fallos mecánicos derivados de condiciones externas extremas (ej. inmersión total en agua o daños físicos por impacto) que excedan la protección IP54 proyectada.
 
 ---
+## 3 El diagrama de contexto define los límites del sistema **MediGo** y sus interacciones con los actores y sistemas externos.
 
-## 3. Diagrama de Bloques del Diseño
+![Diagrama de Contexto](images/diagrama_contexto.png)
+
+## 4. Diagrama de Bloques del Diseño
 
 ![Diagrama de Bloques](Diagrama_Bloques.png)
 
@@ -30,7 +33,7 @@ La falta de adherencia a los tratamientos médicos es un problema grave, especia
 
 ---
 
-## 4. Lógica de Estados del Software
+## 5. Lógica de Estados del Software
 
 ![Diagrama de Estados](Diagrama_de_Estados.png)
 
@@ -46,21 +49,21 @@ La falta de adherencia a los tratamientos médicos es un problema grave, especia
 
 ---
 
-## 5. Alternativas de Diseño
+## 6. Alternativas de Diseño
 * Para la arquitectura de cómputo se descartó una Raspberry Pi a fin de minimizar el consumo energético y maximizar la autonomía portátil, centralizando las tareas en el ESP32 con manejo concurrente en FreeRTOS.
 * Se simplificó la etapa de potencia eliminando acoplamientos MOSFET intermedios, ya que las salidas GPIO de 3.3V del ESP32 saturan directamente las entradas de control del driver ULN2003.
 * En el esquema eléctrico se separó la etapa de carga (TP4056 + BMS) de la etapa de regulación de potencia, añadiendo un convertidor DC-DC *Boost* dedicado para garantizar el voltaje y corriente de torque que exige el motor 28BYJ-48.
 
 ---
 
-## 6. Plan de Test y Validación
+## 7. Plan de Test y Validación
 * **Validación de Firmware:** Pruebas de concurrencia en FreeRTOS para asegurar que las llamadas Wi-Fi/Nube no bloqueen la respuesta de los sensores IR ni el control de fases del motor.
 * **Validación Mecánica y Detección de Atascos:** Pruebas de par cinemático con el motor 28BYJ-48 simulando píldoras de diferentes tamaños e introduciendo obstrucciones deliberadas para validar la rutina automática de reversa y la activación de alarmas.
 * **Test de Seguridad y Alimentación:** Verificación de la curva de descarga de la batería 18650 con el convertidor elevador DC-DC bajo carga activa, y simulación de fallos electrónicos para comprobar el acceso manual mecánico de emergencia.
 
 ---
 
-## 7. Consideraciones Éticas y Gestión de Riesgos
+## 8. Consideraciones Éticas y Gestión de Riesgos
 El proyecto aplica el principio de *seguridad por diseño*. Al depender el paciente de la correcta entrega de su medicación, se aplican los siguientes mecanismos de mitigación:
 * **Mitigación Doble de Atascos:** Detección electrónica activa mediante el sensor IR y secuencia de reintento automático por firmware en caso de bloqueo mecánico. Como respaldo de última instancia, se incluye un botón de anulación mecánica para extracción manual.
 * **Privacidad de Datos:** La información transmitida a ThingSpeak empleará identificadores anónimos y códigos de evento cifrados, evitando vincular datos de identidad directamente en el tráfico de red.
